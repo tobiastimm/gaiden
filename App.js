@@ -1,20 +1,21 @@
 import React, { Component } from 'react'
 import { StyleSheet } from 'react-native'
-import { ApolloClient } from 'apollo-client'
-import { InMemoryCache } from 'apollo-cache-inmemory'
+import ApolloClient, { InMemoryCache, HttpLink } from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
-import { RestLink } from 'apollo-link-rest'
 
 import NavWrapper from './components/Navigator'
 
-const restLink = new RestLink({
-  uri: 'https://www.reddit.com/'
-})
-
-// Configure the ApolloClient with the default cache and RestLink
 const client = new ApolloClient({
-  link: restLink,
-  cache: new InMemoryCache()
+  uri: 'https://api.github.com/graphql',
+  cache: new InMemoryCache(),
+  request: async operation => {
+    const token = '340043e688e311b5fc8a24bc8cf140df20d4aa61'
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : null
+      }
+    })
+  }
 })
 
 export default class App extends Component {

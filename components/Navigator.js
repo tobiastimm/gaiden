@@ -16,7 +16,7 @@ import { createDrawerNavigator } from 'react-navigation'
 import getTheme from '../native-base-theme/components'
 import platform from '../native-base-theme/variables/platform'
 import navigationStyles from '../styles/navigationStyles'
-import Posts from './Posts/Posts'
+import Repos from './Repos/Repos'
 import SideBar from './Sidebar'
 
 class Home extends Component {
@@ -43,7 +43,7 @@ class Home extends Component {
             <Right />
           </Header>
           <Content padder style={styles.content}>
-            <Posts />
+            <Repos />
           </Content>
         </Container>
       </StyleProvider>
