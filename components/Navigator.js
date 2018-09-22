@@ -8,6 +8,7 @@ import {
   Right,
   Body,
   Header,
+  Text,
   Icon,
   StyleProvider
 } from 'native-base'
@@ -38,11 +39,11 @@ class Home extends Component {
               </Button>
             </Left>
             <Body>
-              <Title style={styles.title}>Posts</Title>
+              <Title style={styles.title}>Home</Title>
             </Body>
             <Right />
           </Header>
-          <Content padder style={styles.content}>
+          <Content padder>
             <Repos />
           </Content>
         </Container>

@@ -1,40 +1,29 @@
 import React, { Component } from 'react'
-import { StyleSheet, ActivityIndicator } from 'react-native'
+import { StyleSheet, ActivityIndicator, View } from 'react-native'
 import { Container, List, Card, CardItem, Body, Text } from 'native-base'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
+import { GET_TRENDING_REPOS } from './GraphQLQueries'
 
-import Repo from './Repo'
-
-export const GET_REPOS = gql`
-  query getReposForQuery($query: String = "stars", $first: Int = 2) {
-    search(first: $first, type: REPOSITORY, query: $query) {
-      edges {
-        node {
-          ... on Repository {
-            name
-          }
-        }
-      }
-    }
-  }
-`
+import CompactRepo from './CompactRepo'
 
 export default class Repos extends Component {
   render() {
     return (
-      <Query query={GET_REPOS}>
-        {({ error, loading, data: { search } }) => {
-          if (loading) return <ActivityIndicator size="large" />
-          if (error) return `Error!: ${error}`
-          return (
-            <List
-              dataArray={search.edges}
-              renderRow={({ node: repo }) => <Repo {...repo} />}
-            />
-          )
-        }}
-      </Query>
+      <View>
+        <Query query={GET_TRENDING_REPOS}>
+          {({ error, loading, data: { search } }) => {
+            if (loading) return <ActivityIndicator size="large" />
+            if (error) return `Error!: ${error}`
+            return (
+              <List
+                dataArray={search.edges}
+                renderRow={({ node: repo }) => <CompactRepo {...repo} />}
+              />
+            )
+          }}
+        </Query>
+      </View>
     )
   }
 }
