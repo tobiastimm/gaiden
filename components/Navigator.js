@@ -43,9 +43,9 @@ class Home extends Component {
             </Body>
             <Right />
           </Header>
-          <Content padder>
+          <Container>
             <Repos />
-          </Content>
+          </Container>
         </Container>
       </StyleProvider>
     )

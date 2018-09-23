@@ -5,12 +5,15 @@ export const GET_TRENDING_REPOS = gql`
   query getReposForQuery(
     $query: String = "language:? created:>2018-09-17 stars:>1"
     $first: Int = 10
+    $after: String = null
   ) {
-    search(first: $first, type: REPOSITORY, query: $query) {
+    search(first: $first, after: $after, type: REPOSITORY, query: $query) {
       repositoryCount
       edges {
+        cursor
         node {
           ... on Repository {
+            id
             name
             description
             descriptionHTML
