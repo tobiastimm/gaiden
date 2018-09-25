@@ -9,7 +9,7 @@ const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',
   cache: new InMemoryCache(),
   request: async operation => {
-    const token = '340043e688e311b5fc8a24bc8cf140df20d4aa61'
+    const token = '46c1917e142964df849f444996d87872dfbf2946'
     operation.setContext({
       headers: {
         authorization: token ? `Bearer ${token}` : null

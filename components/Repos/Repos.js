@@ -17,9 +17,36 @@ import { GET_TRENDING_REPOS } from './GraphQLQueries'
 import CompactRepo from './CompactRepo'
 
 export default class Repos extends Component {
-  render() {
+  renderSeparator = () => {
     return (
-      <Query query={GET_TRENDING_REPOS}>
+      <View
+        style={{
+          height: 10
+        }}
+      />
+    )
+  }
+
+  renderFooter = (loading, networkStatus) => {
+    if (!loading) return null
+    if (networkStatus !== 1) {
+      return (
+        <View
+          style={{
+            paddingVertical: 20,
+            borderTopWidth: 1
+          }}
+        >
+          <Spinner />
+        </View>
+      )
+    }
+  }
+
+  render() {
+    const { navigation } = this.props
+    return (
+      <Query query={GET_TRENDING_REPOS} notifyOnNetworkStatusChange>
         {({
           error,
           loading,
@@ -28,7 +55,7 @@ export default class Repos extends Component {
           fetchMore,
           data: { search }
         }) => {
-          if (loading) return <Spinner />
+          if (networkStatus === 1) return <Spinner />
           if (error) return `Error!: ${error}`
           return (
             <View style={{ flex: 1 }}>
@@ -36,18 +63,35 @@ export default class Repos extends Component {
                 <FlatList
                   data={search.edges}
                   renderItem={({ item: { node: repo } }) => {
-                    return <CompactRepo {...repo} />
+                    return (
+                      <CompactRepo
+                        onPress={() =>
+                          navigation.navigate('Repo', {
+                            id: repo.id
+                          })
+                        }
+                        {...repo}
+                      />
+                    )
                   }}
                   onRefresh={() => refetch()}
                   refreshing={networkStatus === 4}
                   onEndReachedThreshold={0.5}
+                  ItemSeparatorComponent={this.renderSeparator}
+                  ListFooterComponent={() =>
+                    this.renderFooter(loading, networkStatus)
+                  }
                   onEndReached={() => {
                     fetchMore({
                       variables: {
                         after: search.edges[search.edges.length - 1].cursor
                       },
                       updateQuery: (prev, { fetchMoreResult }) => {
-                        if (!fetchMoreResult) return prev
+                        if (
+                          !fetchMoreResult ||
+                          fetchMoreResult.search.edges.length === 0
+                        )
+                          return prev
                         return Object.assign({}, prev, {
                           search: {
                             ...prev.search,
