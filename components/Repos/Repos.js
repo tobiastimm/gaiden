@@ -67,7 +67,9 @@ export default class Repos extends Component {
                       <CompactRepo
                         onPress={() =>
                           navigation.navigate('Repo', {
-                            id: repo.id
+                            id: repo.id,
+                            name: repo.name,
+                            owner: repo.owner.login
                           })
                         }
                         {...repo}
