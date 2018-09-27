@@ -16,12 +16,16 @@ import {
 } from 'native-base'
 import { Col, Grid, Row } from 'react-native-easy-grid'
 import { Query } from 'react-apollo'
+import pretty from 'prettysize'
+import { formatDistance } from 'date-fns/esm/fp'
 
-import { GET_REPO } from '../Repos/GraphQLQueries'
+import { GET_REPO_HEADER } from '../Repos/GraphQLQueries'
 import getTheme from '../../native-base-theme/components'
 import platform from '../../native-base-theme/variables/platform'
 
 export default class RepoHeader extends Component {
+  showDescription = () => {}
+
   render() {
     const { navigation } = this.props
     return (
@@ -30,7 +34,7 @@ export default class RepoHeader extends Component {
           <StatusBar barStyle="light-content" />
 
           <Query
-            query={GET_REPO}
+            query={GET_REPO_HEADER}
             variables={{
               name: navigation.state.params.name,
               owner: navigation.state.params.owner
@@ -41,7 +45,7 @@ export default class RepoHeader extends Component {
               if (error) return `Error!: ${error}`
               return (
                 <Grid>
-                  <Row style={{ alignItems: 'center' }}>
+                  <Row style={{ alignItems: 'center', marginBottom: 10 }}>
                     <Col size={0.8 / 4}>
                       <Thumbnail
                         square
@@ -49,22 +53,65 @@ export default class RepoHeader extends Component {
                         source={{ uri: repository.owner.avatarUrl }}
                       />
                     </Col>
-                    <Col size={2.4 / 4}>
+                    <Col size={2.6 / 4}>
                       <Text style={styles.repoName}>
                         {repository.owner.login} / {repository.name}
                       </Text>
-                      <Text style={styles.repoInfo}>Randomtext</Text>
+                      <View style={{ flex: 1, flexDirection: 'row' }}>
+                        <Text style={styles.repoInfo}>
+                          {formatDistance(repository.updatedAt, new Date())}{' '}
+                          ago,{' '}
+                          {pretty(repository.diskUsage * 1000, { places: 2 })}
+                        </Text>
+                        {repository.primaryLanguage && (
+                          <Text
+                            style={{
+                              marginTop: 5,
+                              fontSize: 12,
+                              color: repository.primaryLanguage.color
+                            }}
+                          >
+                            {repository.primaryLanguage.name}
+                          </Text>
+                        )}
+                      </View>
                     </Col>
-                    <Col size={0.8 / 4}>
-                      <Button transparent onPress={() => navigation.goBack()}>
-                        <Icon
-                          style={styles.drawerIcon}
-                          type="Feather"
-                          name="arrow-left"
-                        />
-                      </Button>
+                    <Col size={0.6 / 4}>
+                      <Right
+                        style={{
+                          alignItems: 'center'
+                        }}
+                      >
+                        <Button transparent onPress={this.showDescription}>
+                          <Icon
+                            style={styles.drawerIcon}
+                            type="Feather"
+                            name="info"
+                          />
+                        </Button>
+                      </Right>
                     </Col>
                   </Row>
+                  {repository.repositoryTopics && (
+                    <Row>
+                      <View
+                        style={{
+                          flex: 1,
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          alignContent: 'space-between',
+                          flexWrap: 'wrap'
+                        }}
+                      >
+                        {repository.repositoryTopics.edges.map(({ node }) => (
+                          <Text style={styles.tag} key={node.topic.id}>
+                            {node.topic.name}
+                          </Text>
+                        ))}
+                      </View>
+                    </Row>
+                  )}
                   <Row>
                     <Left style={{ flex: 1 }}>
                       <Button transparent onPress={() => navigation.goBack()}>
@@ -118,7 +165,8 @@ const styles = StyleSheet.create({
   repoInfo: {
     color: 'rgba(211,210,255,1)',
     marginTop: 5,
-    fontSize: 14
+    marginRight: 5,
+    fontSize: 12
   },
   title: {
     alignSelf: 'center',
@@ -127,6 +175,15 @@ const styles = StyleSheet.create({
   },
   drawerIcon: {
     color: '#FAF7FF'
+  },
+  tag: {
+    color: 'rgba(211,210,255,1)',
+    backgroundColor: 'rgba(109,108,214,1)',
+    padding: 4,
+    fontSize: 12,
+    borderRadius: 3,
+    marginRight: 5,
+    marginBottom: 5
   },
   content: {}
 })
