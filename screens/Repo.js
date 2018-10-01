@@ -18,10 +18,10 @@ import {
 } from 'native-base'
 import { Query } from 'react-apollo'
 
-import getTheme from '../../native-base-theme/components'
-import platform from '../../native-base-theme/variables/platform'
-import RepoHeader from '../Layout/RepoHeader'
-import { GET_REPO } from './GraphQLQueries'
+import getTheme from '../native-base-theme/components'
+import platform from '../native-base-theme/variables/platform'
+import RepoHeader from '../components/RepoHeader'
+import { GET_REPO } from '../components/Repos/GraphQLQueries'
 
 export default class Repo extends Component {
   static navigationOptions = props => ({

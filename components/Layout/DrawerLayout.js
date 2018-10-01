@@ -11,8 +11,8 @@ import {
   Icon,
   StyleProvider
 } from 'native-base'
-import getTheme from '../native-base-theme/components'
-import platform from '../native-base-theme/variables/platform'
+import getTheme from '../../native-base-theme/components'
+import platform from '../../native-base-theme/variables/platform'
 
 export default class DrawerLayout extends Component {
   render() {

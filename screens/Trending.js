@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import { Text, View } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 import navigationStyles from '../styles/navigationStyles'
-import Repos from './Repos/Repos'
-import Repo from './Repos/Repo'
-import DrawerLayout from './DrawerLayout'
+import Repos from '../components/Repos/Repos'
+import Repo from './Repo'
+import DrawerLayout from '../components/Layout/DrawerLayout'
 
 class Trending extends Component {
   static navigationOptions = {

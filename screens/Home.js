@@ -12,8 +12,8 @@ import {
 } from 'native-base'
 import { StyleSheet } from 'react-native'
 import navigationStyles from '../styles/navigationStyles'
-import Repos from './Repos/Repos'
-import DrawerLayout from './DrawerLayout'
+import Repos from '../components/Repos/Repos'
+import DrawerLayout from '../components/Layout/DrawerLayout'
 
 export default class Home extends Component {
   static navigationOptions = {

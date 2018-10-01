@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 import ApolloClient, { InMemoryCache, HttpLink } from 'apollo-boost'
 import { ApolloProvider } from 'react-apollo'
 
-import NavWrapper from './components/Navigator'
+import NavWrapper from './Navigator'
 
 const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',
