@@ -1,9 +1,8 @@
 import React from 'react'
 import { createDrawerNavigator } from 'react-navigation'
-import Home from './screens/Home'
-import SideBar from './components/Sidebar'
-import Trending from './screens/Trending'
-import Repo from './screens/Repo'
+import Home from '../screens/Home'
+import SideBar from '../components/Sidebar'
+import Trending from '../screens/Trending'
 
 const Navigator = createDrawerNavigator(
   {

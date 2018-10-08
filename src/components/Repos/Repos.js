@@ -12,7 +12,7 @@ import {
 } from 'native-base'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
-import { GET_TRENDING_REPOS } from './GraphQLQueries'
+import { GET_TRENDING_REPOS } from '../../api/getTrendingRepos'
 
 import CompactRepo from './CompactRepo'
 
@@ -84,27 +84,27 @@ export default class Repos extends Component {
                     this.renderFooter(loading, networkStatus)
                   }
                   onEndReached={() => {
-                    fetchMore({
-                      variables: {
-                        after: search.edges[search.edges.length - 1].cursor
-                      },
-                      updateQuery: (prev, { fetchMoreResult }) => {
-                        if (
-                          !fetchMoreResult ||
-                          fetchMoreResult.search.edges.length === 0
-                        )
-                          return prev
-                        return Object.assign({}, prev, {
-                          search: {
-                            ...prev.search,
-                            edges: [
-                              ...prev.search.edges,
-                              ...fetchMoreResult.search.edges
-                            ]
-                          }
-                        })
-                      }
-                    })
+                    // fetchMore({
+                    //   variables: {
+                    //     after: search.edges[search.edges.length - 1].cursor
+                    //   },
+                    //   updateQuery: (prev, { fetchMoreResult }) => {
+                    //     if (
+                    //       !fetchMoreResult ||
+                    //       fetchMoreResult.search.edges.length === 0
+                    //     )
+                    //       return prev
+                    //     return Object.assign({}, prev, {
+                    //       search: {
+                    //         ...prev.search,
+                    //         edges: [
+                    //           ...prev.search.edges,
+                    //           ...fetchMoreResult.search.edges
+                    //         ]
+                    //       }
+                    //     })
+                    //   }
+                    // })
                   }}
                   keyExtractor={({ node: repo }) => repo.id}
                 />
