@@ -1,0 +1,21 @@
+PODS:
+  - AppAuth (0.94.1)
+
+DEPENDENCIES:
+  - AppAuth (from `https://github.com/tobiastimm/AppAuth-iOS.git`)
+
+EXTERNAL SOURCES:
+  AppAuth:
+    :git: https://github.com/tobiastimm/AppAuth-iOS.git
+
+CHECKOUT OPTIONS:
+  AppAuth:
+    :commit: 581b38363d660efde948f063105e69485d3954a6
+    :git: https://github.com/tobiastimm/AppAuth-iOS.git
+
+SPEC CHECKSUMS:
+  AppAuth: cb53123d54f0127f1b70c11b62c2b6b3a7568060
+
+PODFILE CHECKSUM: 36e0c110728728093d854e667c9aa5f3805ad7bb
+
+COCOAPODS: 1.5.3

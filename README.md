@@ -4,7 +4,7 @@
 
 **Work in Progress!**
 
-This is a personal project to improve my experience with `react-native`. This github client is inspired by great apps like FastHub and Apollo (Reddit Client for iOS). I'm using the github graphql library with `apollo`.
+This is a personal project to improve my experience with `react-native`. This github client is inspired by great apps like FastHub and Apollo (Reddit Client for iOS). I'm using the github graphql api with `apollo`.
 
 There is still a lot of work to do, so don't expect a release in the near future.
 
