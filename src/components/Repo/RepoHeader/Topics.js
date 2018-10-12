@@ -9,7 +9,7 @@ const Container = styled.View`
   align-items: center;
   align-content: space-between;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 `
 
 const Topics = ({ data }) => (

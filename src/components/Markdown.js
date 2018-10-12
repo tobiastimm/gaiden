@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { StyleSheet } from 'react-native'
 import styled from 'styled-components'
 import { Container, Content } from 'native-base'
 import MarkdownRenderer from 'react-native-markdown-renderer'
@@ -9,6 +10,8 @@ const StyledContent = styled(Content)`
   margin-right: 15px;
   margin-top: 5px;
   margin-bottom: 5px;
+  /* color: #faf7ff;
+  background: #353535; */
 `
 
 export default class Markdown extends Component {
@@ -40,3 +43,10 @@ export default class Markdown extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  text: {
+    color: '#FAF7FF',
+    backgroundColor: '#353535'
+  }
+})

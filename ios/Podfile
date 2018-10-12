@@ -9,6 +9,8 @@ target 'gaiden' do
 
   # Pods for gaiden
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'gaidenTests' do
     inherit! :search_paths
     # Pods for testing

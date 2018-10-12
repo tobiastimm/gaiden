@@ -5,6 +5,7 @@
   "private": true,
   "devDependencies": {
     "babel-plugin-styled-components": "^1.8.0",
+    "dotenv": "^6.1.0",
     "node-fetch": "^2.2.0",
     "prettier": "^1.14.2",
     "react-test-renderer": "16.5.2"
@@ -21,7 +22,7 @@
   },
   "dependencies": {
     "@babel/runtime": "7.0.0",
-    "@expo/vector-icons": "^8.0.0",
+    "@expo/vector-icons": "^6.3.1",
     "apollo-boost": "^0.1.15",
     "date-fns": "^2.0.0-alpha.16",
     "graphql": "^14.0.0",

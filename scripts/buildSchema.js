@@ -1,6 +1,9 @@
 const fetch = require('node-fetch')
 const fs = require('fs')
-const token = '46c1917e142964df849f444996d87872dfbf2946'
+
+require('dotenv').config()
+
+const token = process.env.TOKEN
 
 fetch(`https://api.github.com/graphql`, {
   method: 'POST',

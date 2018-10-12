@@ -58,3 +58,5 @@ buck-out/
 ios/build
 ios/Index
 ios/Pods
+
+.env

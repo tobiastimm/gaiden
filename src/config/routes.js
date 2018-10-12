@@ -9,11 +9,11 @@ import Home from '../screens/Home'
 import SideBar from '../components/Sidebar'
 import Trending from '../screens/Trending'
 import AuthLoading from '../screens/AuthLoading'
-import Login from '../screens/Login'
+import SignIn from '../screens/SignIn'
 import { getToken } from '../lib/loginUtils'
 import { withApollo } from 'react-apollo'
 
-const AuthStack = createStackNavigator({ SignIn: Login })
+const AuthStack = createStackNavigator({ SignIn })
 
 const AppStack = createDrawerNavigator(
   {
