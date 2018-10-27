@@ -94,7 +94,8 @@ export default class CompactRepo extends PureComponent {
 
 const styles = StyleSheet.create({
   title: {
-    alignSelf: 'flex-start'
+    alignSelf: 'flex-start',
+    marginBottom: 2
   },
   thumbnailContainer: {
     justifyContent: 'center',
