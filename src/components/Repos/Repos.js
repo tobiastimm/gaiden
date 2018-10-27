@@ -1,6 +1,7 @@
 import { StyleSheet, ActivityIndicator, View } from 'react-native'
 import React, { Component } from 'react'
 import { FlatList, ListView } from 'react-native'
+import debounce from 'lodash/debounce'
 import {
   Container,
   List,
@@ -15,6 +16,7 @@ import gql from 'graphql-tag'
 import { GET_TRENDING_REPOS } from '../../api/getTrendingRepos'
 
 import CompactRepo from './CompactRepo'
+import { format } from 'date-fns/esm'
 
 export default class Repos extends Component {
   renderSeparator = () => {
@@ -46,7 +48,16 @@ export default class Repos extends Component {
   render() {
     const { navigation } = this.props
     return (
-      <Query query={GET_TRENDING_REPOS} notifyOnNetworkStatusChange>
+      <Query
+        query={GET_TRENDING_REPOS}
+        notifyOnNetworkStatusChange
+        variables={{
+          query: `language:? created:>${format(
+            '2018-10-20',
+            'yyyy-MM-dd'
+          )} stars:>1`
+        }}
+      >
         {({
           error,
           loading,
@@ -79,34 +90,44 @@ export default class Repos extends Component {
                   onRefresh={() => refetch()}
                   refreshing={networkStatus === 4}
                   onEndReachedThreshold={0.5}
+                  getItemLayout={(data, index) => ({
+                    offset: 112.5 * index,
+                    length: 112.5,
+                    index
+                  })}
                   ItemSeparatorComponent={this.renderSeparator}
                   ListFooterComponent={() =>
                     this.renderFooter(loading, networkStatus)
                   }
-                  onEndReached={() => {
-                    // fetchMore({
-                    //   variables: {
-                    //     after: search.edges[search.edges.length - 1].cursor
-                    //   },
-                    //   updateQuery: (prev, { fetchMoreResult }) => {
-                    //     if (
-                    //       !fetchMoreResult ||
-                    //       fetchMoreResult.search.edges.length === 0
-                    //     )
-                    //       return prev
-                    //     return Object.assign({}, prev, {
-                    //       search: {
-                    //         ...prev.search,
-                    //         edges: [
-                    //           ...prev.search.edges,
-                    //           ...fetchMoreResult.search.edges
-                    //         ]
-                    //       }
-                    //     })
-                    //   }
-                    // })
+                  onMomentumScrollBegin={() => {
+                    this.onEndReachedCalledDuringMomentum = false
                   }}
-                  keyExtractor={({ node: repo }) => repo.id}
+                  onEndReached={() => {
+                    if (!this.onEndReachedCalledDuringMomentum && !loading) {
+                      fetchMore({
+                        variables: {
+                          after: search.edges[search.edges.length - 1].cursor
+                        },
+                        updateQuery: (prev, { fetchMoreResult }) => {
+                          if (
+                            !fetchMoreResult ||
+                            fetchMoreResult.search.edges.length === 0
+                          ) {
+                            return
+                          }
+                          const entries = fetchMoreResult.search.edges
+                          return {
+                            search: {
+                              ...prev.search,
+                              edges: [...prev.search.edges, ...entries]
+                            }
+                          }
+                        }
+                      })
+                      this.onEndReachedCalledDuringMomentum = true
+                    }
+                  }}
+                  keyExtractor={({ node: repo }) => repo.id + repo.name}
                 />
               </List>
             </View>

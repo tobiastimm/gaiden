@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { StyleSheet, View } from 'react-native'
 import { ListItem, Text, Icon, Button, Thumbnail } from 'native-base'
 import { Col, Grid, Row } from 'react-native-easy-grid'
 
-export default class CompactRepo extends Component {
+export default class CompactRepo extends PureComponent {
   render() {
     const {
       id,
@@ -19,7 +19,7 @@ export default class CompactRepo extends Component {
     return (
       <ListItem noIndent style={styles.listItem} onPress={onPress}>
         <Grid>
-          <Row style={{ marginBottom: 5 }}>
+          <Row>
             <Col size={0.8 / 4} style={styles.thumbnailContainer}>
               <Thumbnail
                 square
@@ -28,17 +28,23 @@ export default class CompactRepo extends Component {
               />
             </Col>
             <Col size={3.2 / 4}>
-              <Row>
+              <Row
+                style={{
+                  flexDirection: 'column',
+                  justifyContent: 'flex-start',
+                  alignItems: 'flex-start'
+                }}
+              >
                 <Text style={styles.title}>
                   {owner.login} / {name}
                 </Text>
-              </Row>
-              <Row>
-                <Text style={styles.description}>{description}</Text>
+                <Text numberOfLines={2} style={styles.description}>
+                  {description}
+                </Text>
               </Row>
             </Col>
           </Row>
-          <Row>
+          <Row style={{ height: 20 }}>
             <Col size={1.5 / 6}>
               <View style={styles.iconContainer}>
                 <Icon style={styles.icon} name="star-o" type="FontAwesome" />
@@ -87,7 +93,9 @@ export default class CompactRepo extends Component {
 }
 
 const styles = StyleSheet.create({
-  title: {},
+  title: {
+    alignSelf: 'flex-start'
+  },
   thumbnailContainer: {
     justifyContent: 'center',
     alignItems: 'flex-start'
@@ -96,8 +104,10 @@ const styles = StyleSheet.create({
     borderRadius: 3
   },
   description: {
-    marginTop: 5,
-    color: '#b5b5b5'
+    fontSize: 10,
+    color: '#b5b5b5',
+    alignSelf: 'flex-start',
+    overflow: 'hidden'
   },
   icon: {
     fontSize: 20,
@@ -113,7 +123,8 @@ const styles = StyleSheet.create({
     shadowColor: 'rgba(0,0,0,0.12)',
     shadowOffset: { width: 1, height: 3 },
     shadowOpacity: 0.8,
-    shadowRadius: 2
+    shadowRadius: 2,
+    height: 112.5
   },
   iconWrapper: {
     justifyContent: 'flex-start',

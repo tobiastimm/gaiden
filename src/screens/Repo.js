@@ -58,9 +58,11 @@ export default class Repo extends Component {
                     />
                   )}
                 >
-                  <Tab heading="README">
-                    <Markdown content={readme.object.text} />
-                  </Tab>
+                  {readme && (
+                    <Tab heading="README">
+                      <Markdown content={readme.object.text} />
+                    </Tab>
+                  )}
                   <Tab heading="FILES">
                     <Text />
                   </Tab>

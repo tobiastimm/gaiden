@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, StatusBar } from 'react-native'
+import { View, StatusBar } from 'react-native'
 import {
   Container,
   Button,
@@ -11,26 +11,40 @@ import {
   Icon,
   StyleProvider
 } from 'native-base'
+import styled from 'styled-components'
+
 import getTheme from '../../native-base-theme/components'
 import platform from '../../native-base-theme/variables/platform'
 
 export default class DrawerLayout extends Component {
   render() {
-    const { title, children, navigation } = this.props
+    const { title, children, navigation, right } = this.props
     return (
       <StyleProvider style={getTheme(platform)}>
         <Container>
-          <Header style={styles.header}>
-            <StatusBar barStyle="light-content" />
-            <Left>
+          <StatusBar barStyle="light-content" />
+          <Header>
+            <Left
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'flex-start'
+              }}
+            >
               <Button transparent onPress={() => navigation.openDrawer()}>
-                <Icon style={styles.drawerIcon} name="menu" />
+                <Icon type="Feather" name="menu" />
               </Button>
             </Left>
-            <Body>
-              <Title style={styles.title}>{title}</Title>
+            <Body
+              style={{
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Title>{title}</Title>
             </Body>
-            <Right />
+            <Right style={{ flex: 1 }}>{right && right()}</Right>
           </Header>
           <Container>{children}</Container>
         </Container>
@@ -38,16 +52,3 @@ export default class DrawerLayout extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  header: {
-    backgroundColor: '#5352BC'
-  },
-  title: {
-    color: '#FAF7FF'
-  },
-  drawerIcon: {
-    color: '#FAF7FF'
-  },
-  content: {}
-})

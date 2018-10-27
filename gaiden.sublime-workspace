@@ -1,0 +1,441 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 59.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"color",
+				"UI: Select Color Scheme"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"prettier",
+				"JsPrettier: Format Code"
+			],
+			[
+				"babel",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"prett",
+				"JsPrettier: Format Code"
+			],
+			[
+				"set syntaxJav",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"remove P",
+				"Package Control: Remove Package"
+			],
+			[
+				"package",
+				"Preferences: Browse Packages"
+			],
+			[
+				"syntax java",
+				"Set Syntax: JavaScript (Babel)"
+			],
+			[
+				"syntax javascript",
+				"Set Syntax: JavaScript (Naomi)"
+			],
+			[
+				"material theme",
+				"Material Theme: Advanced configuration"
+			],
+			[
+				"material",
+				"Material Theme: Extras"
+			],
+			[
+				"mater",
+				"Material Theme: Configuration"
+			],
+			[
+				"file ",
+				"A File Icon: Settings"
+			],
+			[
+				"install pack",
+				"Package Control: Install Package"
+			],
+			[
+				"package control inst",
+				"Package Control: Install Package"
+			],
+			[
+				"remove pac",
+				"Package Control: Remove Package"
+			],
+			[
+				"package contron remo",
+				"Package Control: Remove Channel"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"color theme",
+				"UI: Select Color Scheme"
+			],
+			[
+				"remove ",
+				"Package Control: Remove Package"
+			],
+			[
+				"eslint",
+				"Preferences: SublimeLinter Settings"
+			],
+			[
+				"Install",
+				"Package Control: Install Package"
+			],
+			[
+				"UI ",
+				"UI: Select Color Scheme"
+			],
+			[
+				"color them",
+				"UI: Select Color Scheme"
+			],
+			[
+				"Package Control: instal",
+				"Package Control: Install Package"
+			],
+			[
+				"ayu",
+				"ayu: Activate theme"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 444.0
+	},
+	"console":
+	{
+		"height": 157.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/ttimm/projects/gaiden",
+		"/Users/ttimm/projects/gaiden/src",
+		"/Users/ttimm/projects/gaiden/src/api",
+		"/Users/ttimm/projects/gaiden/src/components",
+		"/Users/ttimm/projects/gaiden/src/components/Layout"
+	],
+	"file_history":
+	[
+		"/Users/ttimm/.zshrc",
+		"/Users/ttimm/.aliases",
+		"/Users/ttimm/.hgrc",
+		"/Users/ttimm/projects/Advanced-React/sick-fits/frontend/components/Permissions.js",
+		"/Users/ttimm/projects/Advanced-React/sick-fits/frontend/components/ErrorMessage.js",
+		"/Users/ttimm/projects/won/kingpin-api/settings.gradle",
+		"/Users/ttimm/.zsh_plugins.txt",
+		"/Users/ttimm/.zsh_plugins.sh",
+		"/Users/ttimm/..zsh_plugins.txt",
+		"/Users/ttimm/projects/etsuite/.zsh_plugins.txt",
+		"/Users/ttimm/projects/gaiden/components/Repos/CompactRepo.js",
+		"/Users/ttimm/projects/won-prototype/settings.gradle",
+		"/Users/ttimm/projects/won-prototype/gradle.properties",
+		"/Users/ttimm/projects/won-prototype/kowalski/settings.gradle",
+		"/Users/ttimm/projects/won-prototype/kingpin/settings.gradle",
+		"/Users/ttimm/projects/won-prototype/kingpin/gradle.properties",
+		"/Users/ttimm/projects/won-prototype/kowalski/gradle.properties",
+		"/Users/ttimm/projects/gaiden/App.js",
+		"/Users/ttimm/.vscode/extensions/shuriken/demo/sample.js",
+		"/Users/ttimm/.vscode/extensions/shuriken/themes/shuriken.json",
+		"/Users/ttimm/.vscode/extensions/shuriken/demo/sample.json",
+		"/Users/ttimm/projects/gaiden/native-base-theme/variables/commonColor.js",
+		"/Users/ttimm/projects/gaiden/.prettierrc",
+		"/Users/ttimm/Library/Application Support/Sublime Text 3/Packages/JsPrettier/JsPrettier.sublime-settings",
+		"/Users/ttimm/projects/gaiden/App.test.js",
+		"/Users/ttimm/projects/etsuite/apollo/.babelrc",
+		"/Users/ttimm/projects/etsuite/apollo/package.json",
+		"/Users/ttimm/projects/etsuite/apollo/apollo_report/app/modules/visualization/dashboardComparisonTooltip/dashboardComparisonTooltip.directive.js",
+		"/Users/ttimm/projects/etsuite/apollo/.nvmrc",
+		"/Users/ttimm/projects/etsuite/apollo/apollo_main/app/config.js",
+		"/Users/ttimm/Library/Application Support/Sublime Text 3/Packages/User/JsPrettier.sublime-settings",
+		"/Users/ttimm/projects/won-prototype/wild-boar/config/paths.js",
+		"/Users/ttimm/projects/won-prototype/ostrich/ostrich-core/src/main/java/com/etracker/ostrich/core/web/service/WorkflowProcessSenderImpl.java",
+		"/Users/ttimm/projects/won-prototype/common/settings.gradle",
+		"/Users/ttimm/projects/won-prototype/wild-boar/src/actions/graphActions.ts",
+		"/Users/ttimm/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/ttimm/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/ttimm/projects/won-prototype/wild-boar/src/components/test.json",
+		"/Users/ttimm/TargetGroup.svg",
+		"/Users/ttimm/Downloads/Duotoned.tmTheme",
+		"/Users/ttimm/projects/won-prototype/wild-boar/node_modules/mxgraph-js/dist/mxgraph-js.js",
+		"/Users/ttimm/projects/reactamique/src/App.js",
+		"/Users/ttimm/projects/uml/etracker_WoN.svg",
+		"/Users/ttimm/.wakatime.cfg",
+		"/Users/ttimm/.ssh/config",
+		"/Users/ttimm/projects/etsuite/apollo/apollo_report/app/modules/report/services/reportMetaData.service.js",
+		"/Users/ttimm/projects/proxies/etbox-ttimm.pac",
+		"/Users/ttimm/Dropbox/glaMouringZ/GlamourRingz - Logo.svg",
+		"/Users/ttimm/projects/wp-graphql/README.md",
+		"/Users/ttimm/projects/etsuite/cassowary/tests/data/310318-060418_SeitenCC_1.json",
+		"/var/folders/34/_7602r951td799x7r1clvtvwcj8wr0/T/extdiff.jlbQ0Y/etsuite.05f98558d735/cassowary/tests/data/310318-060418_SeitenCC_1.json",
+		"/Users/ttimm/projects/etsuite/apollo/apollo_main/app/modules/themeSwitcher/themeSwitcher.service.spec.js",
+		"/Users/ttimm/projects/dotfiles/iTerm_profile.json",
+		"/Users/ttimm/projects/etsuite/.hgignore",
+		"/Users/ttimm/projects/next-plugins/packages/next-stylus/readme.md",
+		"/Users/ttimm/projects/etsuite/emu/.aliases",
+		"/Users/ttimm/projects/etsuite/archdoc/_posts/architekturentscheidungen/2018-03-19-emu.md",
+		"/Users/ttimm/projects/etsuite/archdoc/_posts/bausteinsicht/praesentation/2012-12-11-index.md",
+		"/Users/ttimm/projects/etsuite/archdoc/_posts/bausteinsicht/2012-11-22-index.md",
+		"/Users/ttimm/projects/etsuite/archdoc/_posts/architekturentscheidungen/2018-03-19-typescript.md",
+		"/Users/ttimm/projects/dotfiles/.zshrc",
+		"/Users/ttimm/projects/etsuite/emu/README.md",
+		"/Users/ttimm/Downloads/FusionInventory-Agent-2.4-1.pkg/Contents/Resources/agent.cfg",
+		"/Users/ttimm/Documents/pdfgenerator-architecture.md",
+		"/Users/ttimm/zshrc"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 109.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 0.0
+	},
+	"output.SublimeLinter Messages":
+	{
+		"height": 127.0
+	},
+	"output.doc":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 122.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "gaiden.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"Erro",
+				"frontend/components/ErrorMessage.js"
+			],
+			[
+				"perm",
+				"frontend/components/Permissions.js"
+			],
+			[
+				"settings gradle king",
+				"kingpin/settings.gradle"
+			],
+			[
+				"com",
+				"native-base-theme/variables/commonColor.js"
+			],
+			[
+				"app.test",
+				"App.test.js"
+			],
+			[
+				"DashboardComparison",
+				"apollo_report/app/modules/visualization/dashboardComparisonTooltip/dashboardComparisonTooltip.directive.js"
+			],
+			[
+				"package",
+				"package.json"
+			],
+			[
+				"config.js",
+				"apollo_main/app/config.js"
+			],
+			[
+				"config",
+				"apollo_main/app/config.js"
+			],
+			[
+				"path",
+				"wild-boar/config/paths.js"
+			],
+			[
+				"graphaction",
+				"src/actions/graphActions.ts"
+			],
+			[
+				"reportmeta",
+				"apollo_report/app/modules/report/services/reportMetaData.service.js"
+			],
+			[
+				"reportMeta",
+				"apollo_report/app/modules/report/services/reportMetaData.service.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 293.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
