@@ -1,8 +1,24 @@
 import React, { Component } from 'react'
 import { authorize } from 'react-native-app-auth'
-import { Text, Button, View, StyleSheet } from 'react-native'
+import { StatusBar, StyleSheet, View } from 'react-native'
+import {
+  StyleProvider,
+  Container,
+  Text,
+  Button,
+  Icon,
+  Content,
+  CardItem,
+  Body,
+  Card
+} from 'native-base'
+import styled from 'styled-components'
+
+import getTheme from '../native-base-theme/components'
+import platform from '../native-base-theme/variables/platform'
 import { signIn } from '../lib/loginUtils'
-import { withApollo } from 'react-apollo'
+import navigationStyles from '../styles/navigationStyles'
+import theme from '../styles/theme'
 
 const config = {
   clientId: '02075ad2957d0441150e',
@@ -29,7 +45,61 @@ const config = {
   }
 }
 
-class Login extends Component {
+const StyledContainer = styled(Container)`
+  background: #5352bc;
+`
+
+const StyledCard = styled(Card)`
+  height: 150;
+  width: 220;
+  shadow-offset: 2px 2px;
+  shadow-color: #353535;
+  shadow-opacity: 0.7;
+  shadow-radius: 5;
+`
+
+const Header = styled(CardItem)`
+  flex: 0.6;
+  justify-content: center;
+  align-items: flex-start;
+  background: ${theme.palette.gray};
+`
+const StyledCardItem = styled(CardItem)`
+  background: ${theme.palette.gray};
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+`
+
+const Background = styled(Container)`
+  position: absolute;
+  z-index: -1;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: transparent;
+`
+
+const BackgroundText = styled(Text)`
+  font-size: 250;
+  opacity: 0.4;
+  color: ${theme.text.color};
+  shadow-offset: -1px 1px;
+  shadow-color: #faf7ff;
+  shadow-opacity: 0.7;
+  shadow-radius: 10;
+`
+
+class SignIn extends Component {
+  static navigationOptions = {
+    title: 'gaiden',
+    header: null,
+    ...navigationStyles
+  }
+
   state = {
     token: ''
   }
@@ -46,19 +116,52 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Button onPress={this.oauthGithub} title="Login with github" />
-        <Text>{this.state.token}</Text>
-      </View>
+      <StyleProvider style={getTheme(platform)}>
+        <StyledContainer>
+          <StatusBar barStyle="light-content" />
+          <Content
+            scrollEnabled={false}
+            contentContainerStyle={{
+              flex: 1,
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+            padder
+          >
+            <Background>
+              <BackgroundText>外伝</BackgroundText>
+            </Background>
+            <StyledCard>
+              <Header header>
+                <Button vertical transparent>
+                  <Icon
+                    style={{ fontSize: 44, color: theme.palette.white }}
+                    name="logo-github"
+                  />
+                </Button>
+              </Header>
+              <StyledCardItem button>
+                <Body
+                  style={{
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                >
+                  <Button
+                    style={{ alignSelf: 'center' }}
+                    onPress={this.oauthGithub}
+                  >
+                    <Text>Login with GitHub</Text>
+                  </Button>
+                </Body>
+              </StyledCardItem>
+            </StyledCard>
+          </Content>
+        </StyledContainer>
+      </StyleProvider>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  }
-})
-
-export default Login
+export default SignIn

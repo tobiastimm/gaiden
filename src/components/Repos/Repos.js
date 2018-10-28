@@ -14,7 +14,7 @@ import {
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { GET_TRENDING_REPOS } from '../../api/getTrendingRepos'
-
+import { FullSpinner } from '../styles/SpinnerStyles'
 import CompactRepo from './CompactRepo'
 import { format } from 'date-fns/esm'
 
@@ -23,7 +23,7 @@ export default class Repos extends Component {
     return (
       <View
         style={{
-          height: 10
+          height: 5
         }}
       />
     )
@@ -52,8 +52,8 @@ export default class Repos extends Component {
         query={GET_TRENDING_REPOS}
         notifyOnNetworkStatusChange
         variables={{
-          query: `language:? created:>${format(
-            '2018-10-20',
+          query: `language:? created:${format(
+            Date.now(),
             'yyyy-MM-dd'
           )} stars:>1`
         }}
@@ -66,7 +66,7 @@ export default class Repos extends Component {
           fetchMore,
           data: { search }
         }) => {
-          if (networkStatus === 1) return <Spinner />
+          if (networkStatus === 1) return <FullSpinner />
           if (error) return `Error!: ${error}`
           return (
             <View style={{ flex: 1 }}>

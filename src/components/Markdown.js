@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 import styled from 'styled-components'
 import { Container, Content } from 'native-base'
 import MarkdownRenderer from 'react-native-markdown-renderer'
 import FitImage from 'react-native-fit-image'
+import textStyles from '../styles/textStyles'
 
 const StyledContent = styled(Content)`
-  margin-left: 15px;
-  margin-right: 15px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  /* color: #faf7ff;
-  background: #353535; */
+  margin: 5px 15px;
+  color: ${textStyles.color};
+  background: ${textStyles.backgroundColor};
 `
 
 export default class Markdown extends Component {
@@ -38,7 +36,7 @@ export default class Markdown extends Component {
 
     return (
       <StyledContent>
-        <MarkdownRenderer>{content}</MarkdownRenderer>
+        <MarkdownRenderer style={styles}>{content}</MarkdownRenderer>
       </StyledContent>
     )
   }
@@ -46,7 +44,20 @@ export default class Markdown extends Component {
 
 const styles = StyleSheet.create({
   text: {
-    color: '#FAF7FF',
-    backgroundColor: '#353535'
+    ...textStyles,
+    fontSize: 16
+  },
+  codeBlock: {
+    ...textStyles,
+    backgroundColor: '#424242',
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace'
+  },
+  codeInline: {
+    ...textStyles,
+    backgroundColor: '#424242',
+    fontFamily: Platform.OS === 'ios' ? 'Courier' : 'monospace'
+  },
+  bullet_list: {
+    ...textStyles
   }
 })

@@ -123,7 +123,7 @@ export default {
   tabDefaultBg: '#5352BC',
   topTabBarTextColor: '#D3D2FF',
   topTabBarActiveTextColor: 'rgba(250,247,255,1)',
-  topTabBarBorderColor: '#FAF7FF',
+  topTabBarBorderColor: '#5352BC',
   topTabBarActiveBorderColor: 'rgba(0,200,150,1)',
   tabBgColor: '#353535',
   tabFontSize: 15,

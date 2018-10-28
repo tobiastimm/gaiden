@@ -25,6 +25,7 @@ import getTheme from '../../../native-base-theme/components'
 import platform from '../../../native-base-theme/variables/platform'
 import Topics from './Topics'
 import ToggleIcon from './ToggleIcon'
+import { FullSpinner } from '../../styles/SpinnerStyles'
 
 export default class RepoHeader extends Component {
   showDescription = () => {}
@@ -44,11 +45,11 @@ export default class RepoHeader extends Component {
             }}
           >
             {({ error, loading, data: { repository } }) => {
-              if (loading) return <Spinner />
+              if (loading) return <FullSpinner />
               if (error) return `Error!: ${error}`
               return (
                 <Grid>
-                  <Row style={{ alignItems: 'center', marginBottom: 10 }}>
+                  <Row style={{ alignItems: 'center', marginBottom: 5 }}>
                     <Col size={0.8 / 4}>
                       <Thumbnail
                         square
@@ -95,7 +96,7 @@ export default class RepoHeader extends Component {
                       </Right>
                     </Col>
                   </Row>
-                  {repository.repositoryTopics && (
+                  {!!repository.repositoryTopics.length && (
                     <Row>
                       <Topics data={repository.repositoryTopics.edges} />
                     </Row>

@@ -23,20 +23,23 @@ import { signOut } from '../lib/loginUtils'
 
 const StyledHeader = styled(Header)`
   background: #353535;
-  margin: 0;
   justify-content: flex-start;
-  border-bottom-color: transparent;
-  margin-bottom: 20px;
+  align-items: center;
+  border-bottom-color: #4c4a5a;
+  padding-bottom: 20px;
+  padding-top: 30px;
 `
 
 const Entry = styled(ListItem)`
   background: #353535;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `
 
 const Divider = styled.View`
   border-color: #4c4a5a;
-  border-bottom-width: ${StyleSheet.hairlineWidth};
-  margin: 10px 0;
+  border-bottom-width: 1px;
+  margin: 0;
 `
 
 export default class SideBar extends React.Component {
@@ -52,7 +55,7 @@ export default class SideBar extends React.Component {
   render() {
     return (
       <StyleProvider style={getTheme(platform)}>
-        <Container style={{ paddingTop: 15 }}>
+        <Container>
           <StyledHeader noShadow>
             <Left>
               <Thumbnail
